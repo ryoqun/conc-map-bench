@@ -10,6 +10,7 @@ Implementations benchmarked
 - DashMap
 - Evmap
 - Crossbeam Skiplist
+- LeapMap
 
 ```sh
 > cargo tree | rg 'dashmap|chashmap|contrie|flurry|evmap|crossbeam-skiplist'
@@ -64,8 +65,8 @@ mv results results.bk
 
 ## Results
 
-OS: MacOS Monterey
-CPU: Apple M1
+OS: Ubuntu 20.4
+CPU: AMD Threadripper 3950x
 
 See the `results/` directory.
 
