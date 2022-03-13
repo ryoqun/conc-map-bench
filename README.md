@@ -68,6 +68,8 @@ mv results results.bk
 OS: Ubuntu 20.4
 CPU: AMD Threadripper 3950x
 
+The CPU has 16 cores and 32 threads.
+
 See the `results/` directory.
 
 ### Ready Heavy (fx hasher)
