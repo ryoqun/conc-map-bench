@@ -83,13 +83,39 @@ where
 }
 
 fn run(options: &Options, h: &mut Handler) {
+#[derive(
+    Clone,
+    Copy,
+    Default,
+    Eq,
+    Hash,
+    Ord,
+    PartialEq,
+    PartialOrd,
+    Debug,
+)]
+    pub struct Pubkey(pub(crate) [u8; 32]);
+
+    impl From<u64> for Pubkey {
+        #[inline]
+        fn from(from: u64) -> Self {
+            let mut a = [0; 32];
+            for (i, &b) in from.to_le_bytes().iter().enumerate() {
+                a[i] = b;
+            }
+            Self(a)
+        }
+    }
+
+
+
     if options.use_std_hasher {
-        case::<RwLockStdHashMapTable<u64, RandomState>>("RwLock<StdHashMap>", options, h);
-        case::<LeapfrogMapTable<u64, RandomState>>("LeapfrogMap", options, h);
-        case::<DashMapTable<u64, RandomState>>("DashMap", options, h);
-        case::<FlurryTable<u64, RandomState>>("Flurry", options, h);
-        case::<EvmapTable<u64, RandomState>>("Evmap", options, h);
-        case::<CHashMapTable<u64>>("CHashMap", options, h);
+        //case::<RwLockStdHashMapTable<u64, RandomState>>("RwLock<StdHashMap>", options, h);
+        case::<LeapfrogMapTable<Pubkey, RandomState>>("LeapfrogMap", options, h);
+        case::<DashMapTable<Pubkey, RandomState>>("DashMap", options, h);
+        //case::<FlurryTable<u64, RandomState>>("Flurry", options, h);
+        //case::<EvmapTable<u64, RandomState>>("Evmap", options, h);
+        //case::<CHashMapTable<u64>>("CHashMap", options, h);
     } else {
         case::<RwLockStdHashMapTable<u64, FxBuildHasher>>("RwLock<FxHashMap>", options, h);
         case::<LeapfrogMapTable<u64, FxBuildHasher>>("FxLeapfrogMap", options, h);
@@ -99,8 +125,8 @@ fn run(options: &Options, h: &mut Handler) {
         case::<EvmapTable<u64, FxBuildHasher>>("FxEvmap", options, h);
     }
 
-    case::<CrossbeamSkipMapTable<u64>>("CrossbeamSkipMap", options, h);
-    case::<RwLockBTreeMapTable<u64>>("RwLock<BTreeMap>", options, h);
+    //case::<CrossbeamSkipMapTable<u64>>("CrossbeamSkipMap", options, h);
+    //case::<RwLockBTreeMapTable<u64>>("RwLock<BTreeMap>", options, h);
 }
 
 pub fn bench(options: &Options) {
