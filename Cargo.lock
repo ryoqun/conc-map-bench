@@ -207,6 +207,7 @@ dependencies = [
  "parking_lot 0.12.1",
  "plotters",
  "rpmalloc",
+ "scc",
  "serde",
  "structopt",
  "tracing-subscriber",
@@ -1146,6 +1147,12 @@ checksum = "93fc1dc3aaa9bfed95e02e6eadabb4baf7e3078b0bd1b4d7b6b0b68378900502"
 dependencies = [
  "winapi-util",
 ]
+
+[[package]]
+name = "scc"
+version = "2.0.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f6ffca2d370bbde3a120a882da4094bdb29b4fcb5ffbdc482c9fdf2903c16e50"
 
 [[package]]
 name = "scopeguard"

@@ -113,6 +113,7 @@ fn run(options: &Options, h: &mut Handler) {
         case::<RwLockStdHashMapTable<Pubkey, RandomState>>("RwLock<StdHashMap>", options, h);
         case::<LeapfrogMapTable<Pubkey, RandomState>>("LeapfrogMap", options, h);
         case::<DashMapTable<Pubkey, RandomState>>("DashMap", options, h);
+        case::<SccMapTable<Pubkey, RandomState>>("SccMap", options, h);
         //case::<FlurryTable<u64, RandomState>>("Flurry", options, h);
         //case::<EvmapTable<u64, RandomState>>("Evmap", options, h);
         //case::<CHashMapTable<u64>>("CHashMap", options, h);
