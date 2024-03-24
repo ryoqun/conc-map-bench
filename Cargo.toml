@@ -15,7 +15,7 @@ chashmap = "2.2.2"
 contrie = "0.1.4"
 flurry = "0.5.0"
 dashmap = "5.5.3"
-crossbeam-epoch = { version = "0.9.5", package = "crossbeam-epoch" }
+crossbeam-epoch = "0.9.5"
 parking_lot = "0.12.1"
 evmap = "10.0.2"
 crossbeam-skiplist = "0.1.3"
