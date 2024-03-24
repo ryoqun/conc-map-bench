@@ -1,5 +1,6 @@
 #[global_allocator]
-static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
+//static GLOBAL: tikv_jemallocator::Jemalloc = tikv_jemallocator::Jemalloc;
+static GLOBAL: rpmalloc::RpMalloc = rpmalloc::RpMalloc;
 
 use std::fmt::Debug;
 
