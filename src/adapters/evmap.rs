@@ -40,8 +40,8 @@ where
 }
 
 pub struct EvmapTableHandle<K: Hash + Eq + Clone, H: BuildHasher + Clone> {
-    rd: evmap::ReadHandle<K, u32, (), H>,
-    wr: Arc<Mutex<evmap::WriteHandle<K, u32, (), H>>>,
+    rd: evmap::ReadHandle<K, Value, (), H>,
+    wr: Arc<Mutex<evmap::WriteHandle<K, Value, (), H>>>,
 }
 
 impl<K, H> CollectionHandle for EvmapTableHandle<K, H>
