@@ -110,7 +110,7 @@ fn run(options: &Options, h: &mut Handler) {
 
 
     if options.use_std_hasher {
-        //case::<RwLockStdHashMapTable<u64, RandomState>>("RwLock<StdHashMap>", options, h);
+        case::<RwLockStdHashMapTable<Pubkey, RandomState>>("RwLock<StdHashMap>", options, h);
         case::<LeapfrogMapTable<Pubkey, RandomState>>("LeapfrogMap", options, h);
         case::<DashMapTable<Pubkey, RandomState>>("DashMap", options, h);
         //case::<FlurryTable<u64, RandomState>>("Flurry", options, h);
@@ -123,9 +123,10 @@ fn run(options: &Options, h: &mut Handler) {
         case::<RwLockStdHashMapTable<u64, FxBuildHasher>>("RwLock<FxHashMap>", options, h);
         case::<FlurryTable<u64, FxBuildHasher>>("FxFlurry", options, h);
         case::<EvmapTable<u64, FxBuildHasher>>("FxEvmap", options, h);
+        panic!();
     }
 
-    //case::<CrossbeamSkipMapTable<u64>>("CrossbeamSkipMap", options, h);
+    case::<CrossbeamSkipMapTable<Pubkey>>("CrossbeamSkipMap", options, h);
     //case::<RwLockBTreeMapTable<u64>>("RwLock<BTreeMap>", options, h);
 }
 
