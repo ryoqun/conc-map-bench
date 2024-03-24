@@ -15,4 +15,4 @@ mod leapfrog;
 mod std;
 mod scc;
 
-type Value = u64;
+type Value = u128;
