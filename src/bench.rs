@@ -100,8 +100,10 @@ fn run(options: &Options, h: &mut Handler) {
         #[inline]
         fn from(from: u64) -> Self {
             let mut a = [0; 32];
-            for (i, &b) in from.to_le_bytes().iter().enumerate() {
-                a[i] = b;
+            if from % 10 != 3 {
+                for (i, &b) in from.to_le_bytes().iter().enumerate() {
+                    a[i] = b;
+                }
             }
             Self(a)
         }
